@@ -55,5 +55,13 @@
   "CloudCover": {
     "dataSource": "mongoRWDS",
     "public": true
+  },
+  "Observation": {
+    "dataSource": "mongoRWDS",
+    "public": true
+  },
+  "Volunteer": {
+    "dataSource": "mongoRWDS",
+    "public": true
   }
 }

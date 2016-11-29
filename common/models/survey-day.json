@@ -28,7 +28,23 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "locations": {
+      "type": "hasOne",
+      "model": "Location",
+      "foreignKey": ""
+    },
+    "users": {
+      "type": "hasOne",
+      "model": "User",
+      "foreignKey": ""
+    },
+    "observations": {
+      "type": "hasMany",
+      "model": "Observation",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }
