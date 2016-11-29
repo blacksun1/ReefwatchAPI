@@ -1,0 +1,34 @@
+{
+  "name": "SurveyDay",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "surveyDate": {
+      "type": "date",
+      "required": true
+    },
+    "lowTide": {
+      "type": "number"
+    },
+    "lowTideTime": {
+      "type": "date"
+    },
+    "highTide": {
+      "type": "number"
+    },
+    "hideTideTime": {
+      "type": "date"
+    },
+    "projectOfficer": {
+      "type": "string",
+      "default": "Y"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

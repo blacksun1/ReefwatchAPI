@@ -39,5 +39,21 @@
   "Site": {
     "dataSource": "mongoRWDS",
     "public": true
+  },
+  "SurveyDay": {
+    "dataSource": "mongoRWDS",
+    "public": true
+  },
+  "Rainfall": {
+    "dataSource": "mongoRWDS",
+    "public": true
+  },
+  "BeaufortScale": {
+    "dataSource": "mongoRWDS",
+    "public": true
+  },
+  "CloudCover": {
+    "dataSource": "mongoRWDS",
+    "public": true
   }
 }

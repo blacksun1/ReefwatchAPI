@@ -5,6 +5,9 @@ module.exports = function(app) {
   //create all models
   async.parallel({
     locations: async.apply(createLocations),
+    rainfall: async.apply(createRainfall),
+    beaufordScale: async.apply(createBeaufortScale),
+    cloudCover: async.apply(createCloudCover)
   }, function(err, results) {
     if (err) throw err;
     createSites(results.locations, function(err) {
@@ -46,6 +49,99 @@ module.exports = function(app) {
       ], cb);
     });
   }
+
+  //create rainfall
+  function createRainfall(cb) {
+    mongoDs.automigrate('Rainfall', function(err) {
+      if (err) return cb(err);
+      var Rainfall = app.models.Rainfall;
+      Rainfall.create([{
+        type: 'Light'
+      }, 
+      {
+        type: 'Moderate'
+      }, 
+      {
+        type: 'Heavy'
+      }
+      ], cb);
+    });
+  }
+
+  //create Beauford
+  function createBeaufortScale(cb) {
+    mongoDs.automigrate('BeaufortScale', function(err) {
+      if (err) return cb(err);
+      var BeaufortScale = app.models.BeaufortScale;
+      BeaufortScale.create([{
+        scale: 1,
+        scaleDescription: 'Wind: Light air | Sea State: Calm | Mirror-like to small ripples'
+      }, 
+      {
+        scale: 2,
+        scaleDescription: 'Wind: Gentle breeze | Sea State: Smooth | Large wavelets, crests begn to break'
+      }, 
+      {
+        scale: 3,
+        scaleDescription: 'Wind: Moderate breeze | Sea State: Slight | Small waves becoming longer'
+      }, 
+      {
+        scale: 4,
+        scaleDescription: 'Wind: Fresh breeze | Sea State: Moderate | Many white caps forming'
+      }, 
+      {
+        scale: 5,
+        scaleDescription: 'Wind: Strong breeze | Sea State: Rough | Large waves, extensive white caps'
+      }
+      ], cb);
+    });
+  }
+
+  //create Beauford
+  function createCloudCover(cb) {
+    mongoDs.automigrate('CloudCover', function(err) {
+      if (err) return cb(err);
+      var CloudCover = app.models.CloudCover;
+      CloudCover.create([{
+        category: 0,
+        type: 'Cloudless'
+      }, 
+      {
+        category: 1,
+        type: 'One eighth or less'
+      }, 
+      {
+        category: 2,
+        type: 'Two eighths'
+      }, 
+      {
+        category: 3,
+        type: 'Three eighths'
+      }, 
+      {
+        category: 4,
+        type: 'Four eighths'
+      }, 
+      {
+        category: 5,
+        type: 'Five eighths'
+      }, 
+      {
+        category: 6,
+        type: 'Six eighths'
+      }, 
+      {
+        category: 7,
+        type: 'Seven eighths'
+      }, 
+      {
+        category: 8,
+        type: 'Eight eighths'
+      }
+      ], cb);
+    });
+  }
+
 
   //create reviews
   function createSites(locations, cb) {
