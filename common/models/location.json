@@ -1,0 +1,24 @@
+{
+  "name": "Location",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "locationName": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "sites": {
+      "type": "hasMany",
+      "model": "Site",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

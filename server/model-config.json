@@ -31,5 +31,13 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "Location": {
+    "dataSource": "mongoRWDS",
+    "public": true
+  },
+  "Site": {
+    "dataSource": "mongoRWDS",
+    "public": true
   }
 }
