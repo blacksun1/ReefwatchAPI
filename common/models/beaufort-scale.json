@@ -16,6 +16,7 @@
     }
   },
   "validations": [],
+  "relations": {},
   "acls": [],
   "methods": {}
 }

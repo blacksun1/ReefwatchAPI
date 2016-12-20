@@ -22,6 +22,18 @@
     "hideTideTime": {
       "type": "date"
     },
+    "upper": {
+      "type": "boolean",
+      "default": "False"
+    },
+    "middle": {
+      "type": "boolean",
+      "default": "False"
+    },
+    "lower": {
+      "type": "boolean",
+      "default": "False"
+    },
     "projectOfficer": {
       "type": "string",
       "default": "Y"
@@ -29,20 +41,15 @@
   },
   "validations": [],
   "relations": {
-    "locations": {
-      "type": "hasOne",
-      "model": "Location",
-      "foreignKey": ""
-    },
-    "users": {
-      "type": "hasOne",
-      "model": "User",
-      "foreignKey": ""
-    },
     "observations": {
       "type": "hasMany",
       "model": "Observation",
       "foreignKey": ""
+    },
+    "location": {
+      "type": "belongsTo",
+      "model": "Location",
+      "foreignKey": "locationId"
     }
   },
   "acls": [],

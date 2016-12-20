@@ -36,11 +36,6 @@
       "type": "belongsTo",
       "model": "SurveyDay",
       "foreignKey": "surveyDayId"
-    },
-    "beaufortScale": {
-      "type": "belongsTo",
-      "model": "BeaufortScale",
-      "foreignKey": "beaufortScaleId"
     }
   },
   "acls": [],

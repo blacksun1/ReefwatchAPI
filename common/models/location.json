@@ -17,6 +17,11 @@
       "type": "hasMany",
       "model": "Site",
       "foreignKey": ""
+    },
+    "surveyDays": {
+      "type": "hasMany",
+      "model": "SurveyDay",
+      "foreignKey": "locationId"
     }
   },
   "acls": [],
