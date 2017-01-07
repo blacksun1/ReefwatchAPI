@@ -63,5 +63,9 @@
   "Volunteer": {
     "dataSource": "mongoRWDS",
     "public": true
+  },
+  "SelectedSite": {
+    "dataSource": "mongoRWDS",
+    "public": true
   }
 }

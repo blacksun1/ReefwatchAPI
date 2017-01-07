@@ -4,15 +4,15 @@ module.exports = function(app) {
   var mongoDs = app.dataSources.mongoRWDS;
   //create all models
   async.parallel({
-    locations: async.apply(createLocations),
+    //locations: async.apply(createLocations),
     rainfall: async.apply(createRainfall),
     beaufordScale: async.apply(createBeaufortScale),
     cloudCover: async.apply(createCloudCover)
   }, function(err, results) {
     if (err) throw err;
-    createSites(results.locations, function(err) {
+    /*createSites(results.locations, function(err) {
       console.log('> models created sucessfully');
-    });
+    });*/
   });
   //create reviewers
   function createLocations(cb) {

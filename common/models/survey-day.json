@@ -22,18 +22,6 @@
     "hideTideTime": {
       "type": "date"
     },
-    "upper": {
-      "type": "boolean",
-      "default": "False"
-    },
-    "middle": {
-      "type": "boolean",
-      "default": "False"
-    },
-    "lower": {
-      "type": "boolean",
-      "default": "False"
-    },
     "projectOfficer": {
       "type": "string",
       "default": "Y"
@@ -50,6 +38,11 @@
       "type": "belongsTo",
       "model": "Location",
       "foreignKey": "locationId"
+    },
+    "selectedSites": {
+      "type": "hasMany",
+      "model": "SelectedSite",
+      "foreignKey": ""
     }
   },
   "acls": [],
