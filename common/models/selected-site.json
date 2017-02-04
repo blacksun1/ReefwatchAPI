@@ -10,6 +10,10 @@
       "type": "string",
       "required": true
     },
+    "observationId": {
+      "type": "string",
+      "required": false
+    },
     "siteCode": {
       "type": "string",
       "required": true
