@@ -28,5 +28,13 @@
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "CreateObservations": {
+      "isStatic": false,
+      "accepts": [],
+      "returns": [],
+      "description": "",
+      "http": []
+    }
+  }
 }
