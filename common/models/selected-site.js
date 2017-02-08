@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(Selectedsite) {
+module.exports = function(SelectedSite) {
 
     // Selectedsite.createObservation = function(SelectedSite, cb) {
     //     loopback.Model.Observation
@@ -16,16 +16,15 @@ module.exports = function(Selectedsite) {
     //     }
     // );
 
-    Selectedsite.greet = function(siteId, siteCode, surveyDayId, selectedSite, cb) {
-    
-      cb(null, {"siteId": siteId, "siteCode": siteCode, "surveyDayId": surveyDayId});
+    SelectedSite.SaveSelectedSites = function(selectedSite, cb) {
+        selectedSite.observationId = "Pie";
+        cb(null, selectedSite);
+
     }
 
-    Selectedsite.remoteMethod('greet', {
-          accepts: {arg: 'siteId', type: 'string'},
-          accepts: {arg: 'siteCode', type: 'string'},
-          accepts: {arg: 'surveyDayId', type: 'string'},
-          returns: {arg: 'selectedSite', type: 'Object'}
+    SelectedSite.remoteMethod('SaveSelectedSites', {
+          accepts: {arg: 'data', type: 'SelectedSite', http: { source: 'body' }},
+          returns: {arg: 'data', type: 'SelectedSite', root: true}
     });
 
 };
