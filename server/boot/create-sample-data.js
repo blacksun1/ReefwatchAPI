@@ -21,5 +21,14 @@ module.exports = function(app) {
       var surveyDay = app.models.SurveyDay;
       surveyDay.destroyAll();
       console.log('destroyed all Survey Days');
+
+      var observations = app.models.Observation;
+      observations.destroyAll();
+      console.log('destroyed all Observations');
+
+      var selectedSites = app.models.SelectedSite;
+      selectedSites.destroyAll();
+      console.log('destroyed all Selected Sites');
+
   }
 };
