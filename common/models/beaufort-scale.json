@@ -16,7 +16,12 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {    
+    "observations": {
+      "type": "hasOne",
+      "model": "Observation",
+      "foreignKey": "beaufortScaleId"
+    }},
   "acls": [],
   "methods": {}
 }
