@@ -30,5 +30,9 @@ module.exports = function(app) {
       selectedSites.destroyAll();
       console.log('destroyed all Selected Sites');
 
+      var volunteers = app.models.Volunteer;
+      volunteers.destroyAll();
+      console.log('destroyed all Volunteers');
+
   }
 };

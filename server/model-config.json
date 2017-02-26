@@ -67,5 +67,9 @@
   "SelectedSite": {
     "dataSource": "mongoRWDS",
     "public": true
+  },
+  "reefWatchVolunteer": {
+    "dataSource": "mongoRWDS",
+    "public": true
   }
 }

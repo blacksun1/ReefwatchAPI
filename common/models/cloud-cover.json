@@ -21,7 +21,8 @@
       "type": "hasOne",
       "model": "Observation",
       "foreignKey": "cloudCoverId"
-    }},
+    }
+  },
   "acls": [],
   "methods": {}
 }
