@@ -34,5 +34,9 @@ module.exports = function(app) {
       volunteers.destroyAll();
       console.log('destroyed all Volunteers');
 
+      var pointIntercept = app.models.PointIntercept;
+      pointIntercept.destroyAll();
+      console.log('destroyed all Point Intercept Data');
+
   }
 };

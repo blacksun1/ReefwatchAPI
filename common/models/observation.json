@@ -36,6 +36,11 @@
       "type": "belongsTo",
       "model": "SurveyDay",
       "foreignKey": "surveyDayId"
+    },
+    "pointIntercepts": {
+      "type": "hasMany",
+      "model": "PointIntercept",
+      "foreignKey": ""
     }
   },
   "acls": [],
