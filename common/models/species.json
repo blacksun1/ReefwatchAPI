@@ -1,0 +1,23 @@
+{
+  "name": "Species",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Name": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "timedSearch": {
+      "type": "hasOne",
+      "model": "TimedSearch",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

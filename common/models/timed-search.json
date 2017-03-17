@@ -1,0 +1,35 @@
+{
+  "name": "TimedSearch",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Submerged": {
+      "type": "string"
+    },
+    "Exposed": {
+      "type": "string"
+    },
+    "Crevice": {
+      "type": "string"
+    },
+    "SandyPatch": {
+      "type": "string"
+    },
+    "Other": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "species": {
+      "type": "belongsTo",
+      "model": "Species",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
