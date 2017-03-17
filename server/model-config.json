@@ -75,5 +75,9 @@
   "PointIntercept": {
     "dataSource": "mongoRWDS",
     "public": true
+  },
+  "Quadrat": {
+    "dataSource": "mongoRWDS",
+    "public": true
   }
 }
