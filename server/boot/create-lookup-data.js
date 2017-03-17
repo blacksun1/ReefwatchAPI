@@ -1,3 +1,5 @@
+'use strict';
+
 var async = require('async');
 module.exports = function(app) {
   //data sources
@@ -8,7 +10,7 @@ module.exports = function(app) {
     rainfall: async.apply(createRainfall),
     beaufordScale: async.apply(createBeaufortScale),
     cloudCover: async.apply(createCloudCover),
-    species: async.apply(createSpecies)
+    species: async.apply(createSpecies),
   }, function(err, results) {
     if (err) throw err;
     createSites(results.locations, function(err) {
@@ -21,32 +23,32 @@ module.exports = function(app) {
       if (err) return cb(err);
       var Location = app.models.Location;
       Location.create([{
-        locationName: 'Aldinga South'
-      }, 
-      {
-        locationName: 'Aldinga North'
-      }, 
-      {
-        locationName: 'Hallet Cove'
-      }, 
-      {
-        locationName: 'Beachport'
-      }, 
-      {
-        locationName: 'Robe'
-      }, 
-      {
-        locationName: 'Lady Bay North'
-      }, 
-      {
-        locationName: 'Lady Bay South'
-      }, 
-      {
-        locationName: 'Yilki Beach (Victor Harbour)'
+        locationName: 'Aldinga South',
       },
       {
-        locationName: 'Port Macdonnell'
-      }
+        locationName: 'Aldinga North',
+      },
+      {
+        locationName: 'Hallet Cove',
+      },
+      {
+        locationName: 'Beachport',
+      },
+      {
+        locationName: 'Robe',
+      },
+      {
+        locationName: 'Lady Bay North',
+      },
+      {
+        locationName: 'Lady Bay South',
+      },
+      {
+        locationName: 'Yilki Beach (Victor Harbour)',
+      },
+      {
+        locationName: 'Port Macdonnell',
+      },
       ], cb);
     });
   }
@@ -57,14 +59,14 @@ module.exports = function(app) {
       if (err) return cb(err);
       var Rainfall = app.models.Rainfall;
       Rainfall.create([{
-        type: 'Light'
-      }, 
+        type: 'Light',
+      },
       {
-        type: 'Moderate'
-      }, 
+        type: 'Moderate',
+      },
       {
-        type: 'Heavy'
-      }
+        type: 'Heavy',
+      },
       ], cb);
     });
   }
@@ -76,24 +78,24 @@ module.exports = function(app) {
       var BeaufortScale = app.models.BeaufortScale;
       BeaufortScale.create([{
         scale: 1,
-        scaleDescription: 'Wind: Light air | Sea State: Calm | Mirror-like to small ripples'
-      }, 
+        scaleDescription: 'Wind: Light air | Sea State: Calm | Mirror-like to small ripples',
+      },
       {
         scale: 2,
-        scaleDescription: 'Wind: Gentle breeze | Sea State: Smooth | Large wavelets, crests begn to break'
-      }, 
+        scaleDescription: 'Wind: Gentle breeze | Sea State: Smooth | Large wavelets, crests begn to break',
+      },
       {
         scale: 3,
-        scaleDescription: 'Wind: Moderate breeze | Sea State: Slight | Small waves becoming longer'
-      }, 
+        scaleDescription: 'Wind: Moderate breeze | Sea State: Slight | Small waves becoming longer',
+      },
       {
         scale: 4,
-        scaleDescription: 'Wind: Fresh breeze | Sea State: Moderate | Many white caps forming'
-      }, 
+        scaleDescription: 'Wind: Fresh breeze | Sea State: Moderate | Many white caps forming',
+      },
       {
         scale: 5,
-        scaleDescription: 'Wind: Strong breeze | Sea State: Rough | Large waves, extensive white caps'
-      }
+        scaleDescription: 'Wind: Strong breeze | Sea State: Rough | Large waves, extensive white caps',
+      },
       ], cb);
     });
   }
@@ -105,45 +107,43 @@ module.exports = function(app) {
       var CloudCover = app.models.CloudCover;
       CloudCover.create([{
         category: 0,
-        type: 'Cloudless'
-      }, 
+        type: 'Cloudless',
+      },
       {
         category: 1,
-        type: 'One eighth or less'
-      }, 
+        type: 'One eighth or less',
+      },
       {
         category: 2,
-        type: 'Two eighths'
-      }, 
+        type: 'Two eighths',
+      },
       {
         category: 3,
-        type: 'Three eighths'
-      }, 
+        type: 'Three eighths',
+      },
       {
         category: 4,
-        type: 'Four eighths'
-      }, 
+        type: 'Four eighths',
+      },
       {
         category: 5,
-        type: 'Five eighths'
-      }, 
+        type: 'Five eighths',
+      },
       {
         category: 6,
-        type: 'Six eighths'
-      }, 
+        type: 'Six eighths',
+      },
       {
         category: 7,
-        type: 'Seven eighths'
-      }, 
+        type: 'Seven eighths',
+      },
       {
         category: 8,
-        type: 'Eight eighths'
-      }
+        type: 'Eight eighths',
+      },
       ], cb);
     });
   }
-
-
 
   //create species
   function createSpecies(cb) {
@@ -153,100 +153,100 @@ module.exports = function(app) {
       Species.create([
         {
           commonName: 'Rock Crab / Reef Crab',
-          ScientificName: ''
+          ScientificName: '',
         },
         {
           commonName: 'Pebble Crab',
-          ScientificName: ''
+          ScientificName: '',
         },
         {
           commonName: 'Crab Other',
-          ScientificName: ''
+          ScientificName: '',
         },
         {
           commonName: 'Anemones',
-          ScientificName: ''
+          ScientificName: '',
         },
         {
           commonName: 'Nerita atramentosa',
-          ScientificName: ''
+          ScientificName: '',
         },
         {
           commonName: 'Austrocochlea spp.',
-          ScientificName: ''
+          ScientificName: '',
         },
         {
           commonName: 'Bembicium spp.',
-          ScientificName: ''
+          ScientificName: '',
         },
         {
           commonName: 'Lepsiella spp.',
-          ScientificName: ''
+          ScientificName: '',
         },
         {
           commonName: 'Checkerboard snail',
-          ScientificName: ''
+          ScientificName: '',
         },
         {
           commonName: 'True limpet >5 mm',
-          ScientificName: ''
+          ScientificName: '',
         },
         {
           commonName: 'Siphon limpets',
-          ScientificName: ''
+          ScientificName: '',
         },
         {
           commonName: 'Rock whelk',
-          ScientificName: ''
+          ScientificName: '',
         },
         {
           commonName: 'Barnacles',
-          ScientificName: ''
+          ScientificName: '',
         },
         {
           commonName: 'Mussels',
-          ScientificName: ''
+          ScientificName: '',
         },
         {
           commonName: 'Tube worms',
-          ScientificName: ''
-        }, 
+          ScientificName: '',
+        },
         {
           commonName: 'Nudibranchs',
-          ScientificName: ''
+          ScientificName: '',
         },
         {
           commonName: 'Sea stars',
-          ScientificName: ''
-        },              
+          ScientificName: '',
+        },
         {
           commonName: 'Chitons',
-          ScientificName: ''
-        },   
+          ScientificName: '',
+        },
         {
           commonName: 'Elephant snail',
-          ScientificName: ''
-        },   
+          ScientificName: '',
+        },
         {
           commonName: 'Sea centipede',
-          ScientificName: ''
-        },   
+          ScientificName: '',
+        },
         {
           commonName: 'Sea hare',
-          ScientificName: ''
-        },   
+          ScientificName: '',
+        },
         {
           commonName: 'Feral marine species',
-          ScientificName: ''
-        },   
+          ScientificName: '',
+        },
         {
           commonName: 'Marine debris - plastic',
-          ScientificName: ''
-        },  
+          ScientificName: '',
+        },
         {
           commonName: 'Marine debris - non-plastic',
-          ScientificName: ''
-        }
+          ScientificName: '',
+        },
       ], cb);
     });
   }
@@ -259,11 +259,11 @@ module.exports = function(app) {
       Site.create([{
         siteCode: 'ASL',
         locationId: locations[0].id,
-      }, 
+      },
       {
         siteCode: 'ASM',
         locationId: locations[0].id,
-      }, 
+      },
       {
         siteCode: 'ASU',
         locationId: locations[0].id,
@@ -363,7 +363,7 @@ module.exports = function(app) {
       {
         siteCode: 'PMU',
         locationId: locations[8].id,
-      }
+      },
     ], cb);
     });
   }
