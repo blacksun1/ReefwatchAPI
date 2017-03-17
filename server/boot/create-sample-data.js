@@ -38,5 +38,13 @@ module.exports = function(app) {
       pointIntercept.destroyAll();
       console.log('destroyed all Point Intercept Data');
 
+      var pointIntercept = app.models.Quadrat;
+      pointIntercept.destroyAll();
+      console.log('destroyed all Quadrat');
+
+      var pointIntercept = app.models.TimedSearch;
+      pointIntercept.destroyAll();
+      console.log('destroyed all Timed Search');
+
   }
 };

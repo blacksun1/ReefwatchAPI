@@ -4,15 +4,16 @@ module.exports = function(app) {
   var mongoDs = app.dataSources.mongoRWDS;
   //create all models
   async.parallel({
-    //locations: async.apply(createLocations),
+    locations: async.apply(createLocations),
     rainfall: async.apply(createRainfall),
     beaufordScale: async.apply(createBeaufortScale),
-    cloudCover: async.apply(createCloudCover)
+    cloudCover: async.apply(createCloudCover),
+    species: async.apply(createSpecies)
   }, function(err, results) {
     if (err) throw err;
-    /*createSites(results.locations, function(err) {
+    createSites(results.locations, function(err) {
       console.log('> models created sucessfully');
-    });*/
+    });
   });
   //create reviewers
   function createLocations(cb) {
@@ -142,6 +143,113 @@ module.exports = function(app) {
     });
   }
 
+
+
+  //create species
+  function createSpecies(cb) {
+    mongoDs.automigrate('Species', function(err) {
+      if (err) return cb(err);
+      var Species = app.models.Species;
+      Species.create([
+        {
+          commonName: 'Rock Crab / Reef Crab',
+          ScientificName: ''
+        },
+        {
+          commonName: 'Pebble Crab',
+          ScientificName: ''
+        },
+        {
+          commonName: 'Crab Other',
+          ScientificName: ''
+        },
+        {
+          commonName: 'Anemones',
+          ScientificName: ''
+        },
+        {
+          commonName: 'Nerita atramentosa',
+          ScientificName: ''
+        },
+        {
+          commonName: 'Austrocochlea spp.',
+          ScientificName: ''
+        },
+        {
+          commonName: 'Bembicium spp.',
+          ScientificName: ''
+        },
+        {
+          commonName: 'Lepsiella spp.',
+          ScientificName: ''
+        },
+        {
+          commonName: 'Checkerboard snail',
+          ScientificName: ''
+        },
+        {
+          commonName: 'True limpet >5 mm',
+          ScientificName: ''
+        },
+        {
+          commonName: 'Siphon limpets',
+          ScientificName: ''
+        },
+        {
+          commonName: 'Rock whelk',
+          ScientificName: ''
+        },
+        {
+          commonName: 'Barnacles',
+          ScientificName: ''
+        },
+        {
+          commonName: 'Mussels',
+          ScientificName: ''
+        },
+        {
+          commonName: 'Tube worms',
+          ScientificName: ''
+        }, 
+        {
+          commonName: 'Nudibranchs',
+          ScientificName: ''
+        },
+        {
+          commonName: 'Sea stars',
+          ScientificName: ''
+        },              
+        {
+          commonName: 'Chitons',
+          ScientificName: ''
+        },   
+        {
+          commonName: 'Elephant snail',
+          ScientificName: ''
+        },   
+        {
+          commonName: 'Sea centipede',
+          ScientificName: ''
+        },   
+        {
+          commonName: 'Sea hare',
+          ScientificName: ''
+        },   
+        {
+          commonName: 'Feral marine species',
+          ScientificName: ''
+        },   
+        {
+          commonName: 'Marine debris - plastic',
+          ScientificName: ''
+        },  
+        {
+          commonName: 'Marine debris - non-plastic',
+          ScientificName: ''
+        }
+      ], cb);
+    });
+  }
 
   //create reviews
   function createSites(locations, cb) {
