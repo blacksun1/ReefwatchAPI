@@ -5,7 +5,8 @@
   "scripts": {
     "lint": "eslint .",
     "start": "node .",
-    "posttest": "npm run lint && nsp check"
+    "posttest": "npm run lint && nsp check",
+    "travis": "npm run posttest"
   },
   "dependencies": {
     "compression": "^1.0.3",
