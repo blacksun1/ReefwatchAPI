@@ -1,0 +1,52 @@
+{
+  "name": "Quadrat",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Nerita": {
+      "type": "number",
+      "default": 0
+    },
+    "Austrocochlea": {
+      "type": "number",
+      "default": 0
+    },
+    "Bembicium": {
+      "type": "number"
+    },
+    "Lepsiella": {
+      "type": "number"
+    },
+    "CheckerboardSnail": {
+      "type": "number"
+    },
+    "TurboUndulatus": {
+      "type": "number"
+    },
+    "CommonLimpet": {
+      "type": "number"
+    },
+    "RockWhelk": {
+      "type": "number"
+    },
+    "Haliotis": {
+      "type": "number"
+    },
+    "RockCrab": {
+      "type": "number"
+    },
+    "PebbleCrab": {
+      "type": "number"
+    },
+    "Other": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

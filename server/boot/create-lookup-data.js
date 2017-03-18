@@ -1,18 +1,21 @@
+'use strict';
+
 var async = require('async');
 module.exports = function(app) {
   //data sources
   var mongoDs = app.dataSources.mongoRWDS;
   //create all models
   async.parallel({
-    //locations: async.apply(createLocations),
+    locations: async.apply(createLocations),
     rainfall: async.apply(createRainfall),
     beaufordScale: async.apply(createBeaufortScale),
-    cloudCover: async.apply(createCloudCover)
+    cloudCover: async.apply(createCloudCover),
+    species: async.apply(createSpecies),
   }, function(err, results) {
     if (err) throw err;
-    /*createSites(results.locations, function(err) {
+    createSites(results.locations, function(err) {
       console.log('> models created sucessfully');
-    });*/
+    });
   });
   //create reviewers
   function createLocations(cb) {
@@ -20,32 +23,32 @@ module.exports = function(app) {
       if (err) return cb(err);
       var Location = app.models.Location;
       Location.create([{
-        locationName: 'Aldinga South'
-      }, 
-      {
-        locationName: 'Aldinga North'
-      }, 
-      {
-        locationName: 'Hallet Cove'
-      }, 
-      {
-        locationName: 'Beachport'
-      }, 
-      {
-        locationName: 'Robe'
-      }, 
-      {
-        locationName: 'Lady Bay North'
-      }, 
-      {
-        locationName: 'Lady Bay South'
-      }, 
-      {
-        locationName: 'Yilki Beach (Victor Harbour)'
+        locationName: 'Aldinga South',
       },
       {
-        locationName: 'Port Macdonnell'
-      }
+        locationName: 'Aldinga North',
+      },
+      {
+        locationName: 'Hallet Cove',
+      },
+      {
+        locationName: 'Beachport',
+      },
+      {
+        locationName: 'Robe',
+      },
+      {
+        locationName: 'Lady Bay North',
+      },
+      {
+        locationName: 'Lady Bay South',
+      },
+      {
+        locationName: 'Yilki Beach (Victor Harbour)',
+      },
+      {
+        locationName: 'Port Macdonnell',
+      },
       ], cb);
     });
   }
@@ -56,14 +59,14 @@ module.exports = function(app) {
       if (err) return cb(err);
       var Rainfall = app.models.Rainfall;
       Rainfall.create([{
-        type: 'Light'
-      }, 
+        type: 'Light',
+      },
       {
-        type: 'Moderate'
-      }, 
+        type: 'Moderate',
+      },
       {
-        type: 'Heavy'
-      }
+        type: 'Heavy',
+      },
       ], cb);
     });
   }
@@ -75,24 +78,24 @@ module.exports = function(app) {
       var BeaufortScale = app.models.BeaufortScale;
       BeaufortScale.create([{
         scale: 1,
-        scaleDescription: 'Wind: Light air | Sea State: Calm | Mirror-like to small ripples'
-      }, 
+        scaleDescription: 'Wind: Light air | Sea State: Calm | Mirror-like to small ripples',
+      },
       {
         scale: 2,
-        scaleDescription: 'Wind: Gentle breeze | Sea State: Smooth | Large wavelets, crests begn to break'
-      }, 
+        scaleDescription: 'Wind: Gentle breeze | Sea State: Smooth | Large wavelets, crests begn to break',
+      },
       {
         scale: 3,
-        scaleDescription: 'Wind: Moderate breeze | Sea State: Slight | Small waves becoming longer'
-      }, 
+        scaleDescription: 'Wind: Moderate breeze | Sea State: Slight | Small waves becoming longer',
+      },
       {
         scale: 4,
-        scaleDescription: 'Wind: Fresh breeze | Sea State: Moderate | Many white caps forming'
-      }, 
+        scaleDescription: 'Wind: Fresh breeze | Sea State: Moderate | Many white caps forming',
+      },
       {
         scale: 5,
-        scaleDescription: 'Wind: Strong breeze | Sea State: Rough | Large waves, extensive white caps'
-      }
+        scaleDescription: 'Wind: Strong breeze | Sea State: Rough | Large waves, extensive white caps',
+      },
       ], cb);
     });
   }
@@ -104,44 +107,149 @@ module.exports = function(app) {
       var CloudCover = app.models.CloudCover;
       CloudCover.create([{
         category: 0,
-        type: 'Cloudless'
-      }, 
+        type: 'Cloudless',
+      },
       {
         category: 1,
-        type: 'One eighth or less'
-      }, 
+        type: 'One eighth or less',
+      },
       {
         category: 2,
-        type: 'Two eighths'
-      }, 
+        type: 'Two eighths',
+      },
       {
         category: 3,
-        type: 'Three eighths'
-      }, 
+        type: 'Three eighths',
+      },
       {
         category: 4,
-        type: 'Four eighths'
-      }, 
+        type: 'Four eighths',
+      },
       {
         category: 5,
-        type: 'Five eighths'
-      }, 
+        type: 'Five eighths',
+      },
       {
         category: 6,
-        type: 'Six eighths'
-      }, 
+        type: 'Six eighths',
+      },
       {
         category: 7,
-        type: 'Seven eighths'
-      }, 
+        type: 'Seven eighths',
+      },
       {
         category: 8,
-        type: 'Eight eighths'
-      }
+        type: 'Eight eighths',
+      },
       ], cb);
     });
   }
 
+  //create species
+  function createSpecies(cb) {
+    mongoDs.automigrate('Species', function(err) {
+      if (err) return cb(err);
+      var Species = app.models.Species;
+      Species.create([
+        {
+          commonName: 'Rock Crab / Reef Crab',
+          ScientificName: '',
+        },
+        {
+          commonName: 'Pebble Crab',
+          ScientificName: '',
+        },
+        {
+          commonName: 'Crab Other',
+          ScientificName: '',
+        },
+        {
+          commonName: 'Anemones',
+          ScientificName: '',
+        },
+        {
+          commonName: 'Nerita atramentosa',
+          ScientificName: '',
+        },
+        {
+          commonName: 'Austrocochlea spp.',
+          ScientificName: '',
+        },
+        {
+          commonName: 'Bembicium spp.',
+          ScientificName: '',
+        },
+        {
+          commonName: 'Lepsiella spp.',
+          ScientificName: '',
+        },
+        {
+          commonName: 'Checkerboard snail',
+          ScientificName: '',
+        },
+        {
+          commonName: 'True limpet >5 mm',
+          ScientificName: '',
+        },
+        {
+          commonName: 'Siphon limpets',
+          ScientificName: '',
+        },
+        {
+          commonName: 'Rock whelk',
+          ScientificName: '',
+        },
+        {
+          commonName: 'Barnacles',
+          ScientificName: '',
+        },
+        {
+          commonName: 'Mussels',
+          ScientificName: '',
+        },
+        {
+          commonName: 'Tube worms',
+          ScientificName: '',
+        },
+        {
+          commonName: 'Nudibranchs',
+          ScientificName: '',
+        },
+        {
+          commonName: 'Sea stars',
+          ScientificName: '',
+        },
+        {
+          commonName: 'Chitons',
+          ScientificName: '',
+        },
+        {
+          commonName: 'Elephant snail',
+          ScientificName: '',
+        },
+        {
+          commonName: 'Sea centipede',
+          ScientificName: '',
+        },
+        {
+          commonName: 'Sea hare',
+          ScientificName: '',
+        },
+        {
+          commonName: 'Feral marine species',
+          ScientificName: '',
+        },
+        {
+          commonName: 'Marine debris - plastic',
+          ScientificName: '',
+        },
+        {
+          commonName: 'Marine debris - non-plastic',
+          ScientificName: '',
+        },
+      ], cb);
+    });
+  }
 
   //create reviews
   function createSites(locations, cb) {
@@ -151,11 +259,11 @@ module.exports = function(app) {
       Site.create([{
         siteCode: 'ASL',
         locationId: locations[0].id,
-      }, 
+      },
       {
         siteCode: 'ASM',
         locationId: locations[0].id,
-      }, 
+      },
       {
         siteCode: 'ASU',
         locationId: locations[0].id,
@@ -255,7 +363,7 @@ module.exports = function(app) {
       {
         siteCode: 'PMU',
         locationId: locations[8].id,
-      }
+      },
     ], cb);
     });
   }
