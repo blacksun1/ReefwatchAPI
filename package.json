@@ -1,6 +1,7 @@
 {
-  "name": "ReefwatchAPI",
-  "version": "1.0.0",
+  "name": "reefwatch-api",
+  "description": "The API for the ReefWatch project",
+  "version": "0.1.0",
   "main": "server/server.js",
   "scripts": {
     "lint": "eslint .",
@@ -23,12 +24,12 @@
   "devDependencies": {
     "eslint": "^2.13.1",
     "eslint-config-loopback": "^4.0.0",
+    "nodemon": "^1.11.0",
     "nsp": "^2.1.0"
   },
   "repository": {
     "type": "",
     "url": ""
   },
-  "license": "UNLICENSED",
-  "description": "ReefwatchAPI"
+  "license": "CC0-1.0"
 }
