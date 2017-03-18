@@ -41,6 +41,11 @@
       "type": "hasMany",
       "model": "PointIntercept",
       "foreignKey": ""
+    },
+    "timedSearches": {
+      "type": "hasMany",
+      "model": "TimedSearch",
+      "foreignKey": ""
     }
   },
   "acls": [],

@@ -2,11 +2,18 @@
 
 This is the API for the ReefWatch project.
 
+## Installing
+
+```bash
+npm install
+npm install -g strongloop
+```
+
 ## Usage
 
 Make sure that you have a MongoDB running on the local machine and then run
 
-```js
+```bash
 node ./
 ```
 

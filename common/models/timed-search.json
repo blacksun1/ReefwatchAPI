@@ -28,6 +28,11 @@
       "type": "belongsTo",
       "model": "Species",
       "foreignKey": ""
+    },
+    "observation": {
+      "type": "belongsTo",
+      "model": "Observation",
+      "foreignKey": ""
     }
   },
   "acls": [],
