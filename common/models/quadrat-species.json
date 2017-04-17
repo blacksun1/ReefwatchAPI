@@ -1,16 +1,14 @@
 {
-  "name": "Quadrat",
+  "name": "QuadratSpecies",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "count": {
-      "type": "string"
-    },
-    "comment": {
-      "type": "string"
+    "name": {
+      "type": "string",
+      "required": true
     }
   },
   "validations": [],

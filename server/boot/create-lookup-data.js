@@ -11,6 +11,7 @@ module.exports = function(app) {
     beaufordScale: async.apply(createBeaufortScale),
     cloudCover: async.apply(createCloudCover),
     species: async.apply(createSpecies),
+    quadratRange: async.apply(createQuadratRange),
   }, function(err, results) {
     if (err) throw err;
     createSites(results.locations, function(err) {
@@ -52,6 +53,33 @@ module.exports = function(app) {
       ], cb);
     });
   }
+
+
+  //create quadratRange
+  function createQuadratRange(cb) {
+    mongoDs.automigrate('QuadratRange', function(err) {
+      if (err) return cb(err);
+      var QuadratRange = app.models.QuadratRange;
+      QuadratRange.create([{
+        range: 'Number of individuals between 0-2m',
+      },
+      {
+        range: 'Number of individuals between 4-6m',
+      },
+      {
+        range: 'Number of individuals between 8-10m',
+      },
+      {
+        range: 'Number of individuals between 12-14m',
+      },
+      {
+        range: 'Number of individuals between 16-18m',
+      },
+      ], cb);
+    });
+  }
+
+
 
   //create rainfall
   function createRainfall(cb) {

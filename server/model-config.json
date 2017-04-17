@@ -76,15 +76,23 @@
     "dataSource": "mongoRWDS",
     "public": true
   },
-  "Quadrat": {
-    "dataSource": "mongoRWDS",
-    "public": true
-  },
   "TimedSearch": {
     "dataSource": "mongoRWDS",
     "public": true
   },
   "Species": {
+    "dataSource": "mongoRWDS",
+    "public": true
+  },
+  "QuadratRange": {
+    "dataSource": "mongoRWDS",
+    "public": true
+  },
+  "QuadratSpecies": {
+    "dataSource": "mongoRWDS",
+    "public": true
+  },
+  "Quadrat": {
     "dataSource": "mongoRWDS",
     "public": true
   }
