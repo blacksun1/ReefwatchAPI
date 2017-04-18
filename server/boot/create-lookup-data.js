@@ -12,6 +12,7 @@ module.exports = function(app) {
     cloudCover: async.apply(createCloudCover),
     species: async.apply(createSpecies),
     quadratRange: async.apply(createQuadratRange),
+    quadratRange: async.apply(createQuadratSpecies),
   }, function(err, results) {
     if (err) throw err;
     createSites(results.locations, function(err) {
@@ -74,6 +75,53 @@ module.exports = function(app) {
       },
       {
         range: 'Number of individuals between 16-18m',
+      },
+      ], cb);
+    });
+  }
+
+
+  //create quadratRange
+  function createQuadratSpecies(cb) {
+    mongoDs.automigrate('QuadratSpecies', function(err) {
+      if (err) return cb(err);
+      var QuadratSpecies = app.models.QuadratSpecies;
+      QuadratSpecies.create([
+      {
+        name: 'Nerita atramentosa',
+      },
+      {
+        name: 'Austrocochlea spp',
+      },
+      {
+        name: 'Bembicium spp',
+      },
+      {
+        name: 'Lepsiella spp',
+      },
+      {
+        name: 'Checkerboard Snail',
+      },
+      {
+        name: 'Turbo undulatus',
+      },
+      {
+        name: 'Common limpet (Cellana spp)',
+      },
+      {
+        name: 'Rock Whelk (Dicathais orbita)',
+      },
+      {
+        name: 'Haliotis spp',
+      },
+      {
+        name: 'False limpets (Siphonaria spp)',
+      },
+      {
+        name: 'Rock crab (Ozius truncatuus)',
+      },
+      {
+        name: 'Pebble crab',
       },
       ], cb);
     });
