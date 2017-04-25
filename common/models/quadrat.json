@@ -14,7 +14,23 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "observation": {
+      "type": "belongsTo",
+      "model": "Observation",
+      "foreignKey": ""
+    },
+    "quadratSpecies": {
+      "type": "belongsTo",
+      "model": "QuadratSpecies",
+      "foreignKey": ""
+    },
+    "quadratRange": {
+      "type": "belongsTo",
+      "model": "QuadratRange",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }
